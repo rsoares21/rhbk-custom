@@ -12,7 +12,7 @@ ENV KC_DB=postgres
 
 WORKDIR /opt/keycloak
 
-COPY ./providers/*.jar /opt/keycloak/providers/
+#COPY ./providers/*.jar /opt/keycloak/providers/
 
 RUN /opt/keycloak/bin/kc.sh build
 
@@ -20,11 +20,11 @@ RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysi
 RUN /opt/keycloak/bin/kc.sh build
 
 # FROM registry.redhat.io/rhbk/keycloak-rhel9:24-12
-FROM registry.redhat.io/rhbk/keycloak-rhel9:22-15
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
+#FROM registry.redhat.io/rhbk/keycloak-rhel9:22-15
+#COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 
 
 
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+#ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
